@@ -1,1 +1,1 @@
-This is a Next.js/React/Typescript/Tailwind/GSAP app with fake data and random assets/text. I took insipiration from websites then I made it from scratch and then used random assets and text.
+This project was built using Next.js, React, TypeScript, Tailwind CSS, and GSAP. It was inspired by various modern website designs and developed from scratch as a personal project. All content, assets, and text are placeholders or randomly generated and are used solely for demonstration purposes.
