@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+    --font-poppins: var(--font-poppins);
+    --font-suez-one: var(--font-suez-one);
+    --font-open-sans: var(--font-open-sans);
+
+    --color-main-clr-dark: #00204c;
+    --color-electric-violet: #A700FA;
+    --color-zumthor: #eaf2ff;
+
+    --breakpoint-3xl: 137.5rem;
+}
+
+@layer base {
+    body {
+        @apply scroll-smooth text-main-clr-dark bg-zumthor font-open-sans font-normal has-[.hamburger.active-menu]:overflow-hidden has-[.Modal]:overflow-hidden has-[.RTE]:bg-white has-[.AccessibilityComponent]:bg-white;
+    }
+
+    h1,
+    h2 {
+        @apply font-poppins;
+    }
+
+    h1 {
+        @apply text-4xl md:text-5xl lg:text-7xl font-semibold;
+    }
+
+    h2 {
+        @apply text-2xl md:text-4xl lg:text-5xl;
+    }
+
+    h3 {
+        @apply text-lg lg:text-2xl font-open-sans font-bold;
+    }
+
+    h5 {
+        @apply text-lg font-open-sans font-bold;
+    }
+
+    label {
+        @apply text-sm;
+    }
+
+    input,
+    textarea {
+        @apply text-base border border-main-clr-dark rounded-sm;
+    }
+
+    input {
+        @apply h-10 px-3 py-1.5;
+    }
+
+    textarea {
+        @apply p-3 resize-none h-23;
+    }
+
+    select {
+        @apply border border-white py-1.75 px-2 rounded-[.25rem] appearance-none w-full;
+    }
+
+    button {
+        @apply cursor-pointer;
+    }
+}
+
+@layer components {
+    .wrapper {
+        @apply w-full xl:w-[calc(100%-200px)] mx-auto;
+    }
+
+    .hamburger {
+        @apply bg-white w-12 h-12 rounded-[15px] main-shadow;
+
+        >div {
+            @apply w-6.5 relative mx-auto transition-transform ease-in-out duration-330;
+        }
+
+        span {
+            @apply w-full h-0.75 bg-main-clr-dark block absolute rounded-xs transition-all custom-cubic-transition duration-330 first:-top-2 first:w-1/2 first:left-0 last:top-2 last:w-1/2 last:right-0;
+        }
+    }
+
+    .custom-checkbox {
+        @apply relative after:absolute after:w-full after:bg-transparent after:-bottom-8 after:pointer-events-none;
+
+        label {
+            @apply block relative pl-7 cursor-pointer text-base select-none text-black;
+        }
+
+        input {
+            @apply absolute opacity-0 cursor-pointer h-[1px] w-[1px];
+        }
+
+        span:empty {
+            @apply absolute top-1/2 transform -translate-y-1/2 left-0 h-4 w-4 bg-transparent flex justify-center items-center border border-main-clr-dark after:hidden after:absolute after:w-1.25 after:h-2 after:border after:border-electric-violet after:transform after:rotate-[45deg] after:top-0.5 after:border-r-2 after:border-b-2 after:border-t-0 after:border-l-0;
+        }
+
+        input:checked~span:empty::after {
+            @apply block;
+        }
+
+        input:focus-visible~span:empty {
+            @apply ring-2 ring-offset-2 ring-black;
+        }
+
+        input:invalid:required~.checkbox-error {
+            @apply block;
+        }
+    }
+
+    .btn-dark,
+    .btn-light,
+    .btn-purple {
+        @apply border text-sm inline-flex font-bold min-w-32.5 justify-center rounded-[100px] leading-none p-5 md:p-5.75 transition-colors duration-300 ease-in-out;
+    }
+
+    .btn-light {
+        @apply border-white bg-white text-main-clr-dark hover:text-white hover:bg-transparent;
+    }
+
+    .btn-dark {
+        @apply border-main-clr-dark bg-main-clr-dark text-white hover:text-main-clr-dark hover:bg-transparent;
+    }
+
+    .btn-purple {
+        @apply border-electric-violet bg-electric-violet text-white hover:bg-main-clr-dark hover:border-main-clr-dark;
+    }
+
+    .highlight-text {
+        @apply bg-electric-violet text-white rounded-[100px] py-1.25 px-5 md:py-4.5 md:px-7 inline-flex;
+    }
+} 
+
+@utility main-shadow {
+    box-shadow: 6px 7px 10px 0 rgba(167, 0, 250, 0.1);
+}
+
+@utility custom-cubic-transition {
+    transition-timing-function: cubic-bezier(0.54, -0.81, 0.57, 0.57);
+}
+
+@utility person-card-shadow {
+    background: linear-gradient(180deg,rgba(167,0,250,0),rgba(167,0,250,0.5));
+}
